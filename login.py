@@ -7,13 +7,22 @@ def login():
 
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
+    selected_role = st.selectbox("Login As", ["admin", "user"])
 
     if st.button("Login"):
-        result = conn.execute("SELECT role FROM users WHERE username = ? AND password = ?", (username, password)).fetchone()
+        result = conn.execute(
+            "SELECT role FROM users WHERE username = ? AND password = ?",
+            (username, password)
+        ).fetchone()
+
         if result:
-            st.session_state["username"] = username
-            st.session_state["role"] = result[0]
-            st.success("Login successful!")
-            st.experimental_rerun()
+            actual_role = result[0]
+            if selected_role == actual_role:
+                st.session_state["username"] = username
+                st.session_state["role"] = actual_role
+                st.success(f"Login successful as {actual_role}!")
+                st.experimental_rerun()  # ✅ Fixed line
+            else:
+                st.error(f"Access denied. User is registered as '{actual_role}', not '{selected_role}'.")
         else:
             st.error("Invalid credentials")
