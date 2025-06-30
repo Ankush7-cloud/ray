@@ -9,4 +9,4 @@ def admin_dashboard():
     st.subheader("Device Inventory")
     rows = conn.execute("SELECT * FROM devices").fetchall()
     df = pd.DataFrame(rows, columns=["Service Tag", "Employee ID", "Device Type", "Memory"])
-    st.table(df)
+    st.table(df)
