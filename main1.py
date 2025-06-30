@@ -3,8 +3,8 @@ from signup import signup
 from login2 import login
 from home import home
 from admin_dashboard1 import admin_dashboard
-from user_management import user_management
-from resource_management import resource_management
+from user_management1 import user_management
+from resource_management1 import resource_management
 from insert_device import insert_device
 from delete_device import delete_device
 from update_device1 import update_device
