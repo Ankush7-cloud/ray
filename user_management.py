@@ -10,5 +10,4 @@ def user_management():
         users = conn.execute("SELECT username, email, role FROM users").fetchall()
     else:
         users = conn.execute("SELECT username, email, role FROM users WHERE role = 'user'").fetchall()
-
-    st.table(users)
+    st.table(users)
