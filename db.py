@@ -21,4 +21,4 @@ def init_db():
         )
     """)
 
-    return conn
+    return conn
