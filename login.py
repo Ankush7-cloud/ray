@@ -20,9 +20,13 @@ def login():
             if selected_role == actual_role:
                 st.session_state["username"] = username
                 st.session_state["role"] = actual_role
+                # Navigate to the right page directly
+                if actual_role == "admin":
+                    st.session_state["page"] = "Dashboard"
+                else:
+                    st.session_state["page"] = "Resource Management"
                 st.success(f"Login successful as {actual_role}!")
-                st.experimental_rerun()  # ✅ Fixed line
             else:
-                st.error(f"Access denied. User is registered as '{actual_role}', not '{selected_role}'.")
+                st.error(f"Access denied. You are registered as '{actual_role}', not '{selected_role}'.")
         else:
             st.error("Invalid credentials")
