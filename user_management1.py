@@ -13,4 +13,4 @@ def user_management():
         users = conn.execute("SELECT username, email, role FROM users WHERE role = 'user'").fetchall()
 
     df = pd.DataFrame(users, columns=["Username", "Email ID", "User"])
-    st.table(df)
+    st.table(df)
