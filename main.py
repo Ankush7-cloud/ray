@@ -1,6 +1,6 @@
 import streamlit as st
 from signup import signup
-from login import login
+from login import login2
 from home import home
 from admin_dashboard import admin_dashboard
 from user_management import user_management
