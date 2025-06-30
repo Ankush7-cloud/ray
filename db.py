@@ -20,5 +20,4 @@ def init_db():
             memory TEXT
         )
     """)
-
-    return conn
+    return conn
