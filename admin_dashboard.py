@@ -18,4 +18,4 @@ def admin_dashboard():
             st.session_state["page"] = "Delete Device"
     with col3:
         if st.button("✏ Update"):
-            st.session_state["page"] = "Update Device"
+            st.session_state["page"]="Update Device"
